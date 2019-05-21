@@ -1,6 +1,6 @@
 def shellSort(arr,interval):
     for i in range(len(arr)-interval):
-        if arr[i]>arr[i+interval]:
+        if arr[i][0]>arr[i+interval][0]:
             tmep=arr[i+interval]
             arr[i+interval]=arr[i]
             arr[i]=tmep
@@ -9,7 +9,7 @@ def shellSort(arr,interval):
     else:
         j=0
         while(j<len(arr)-1):
-            if arr[j]>arr[j+1]:
+            if arr[j][0]>arr[j+1][0]:
                 tmep=arr[j+1]
                 arr[j+1]=arr[j]
                 arr[j]=tmep
@@ -19,17 +19,17 @@ def shellSort(arr,interval):
                 
             
     
-thisdict={}
+thisdict=[]
 n=int(input(print("Enter number of keys")))
 for i in range(n):
     print("Enter key")
     a=int(input())
     print("Enter value")
-    thisdict[a]=int(input())
-keys=list(thisdict.keys())
-h=int(len(keys)/2)
-sortedList=shellSort(keys,h)
-for i in range(len(keys)):
-    print(str(sortedList[i])+": "+str(thisdict.get(sortedList[i])))
+    b=int(input())
+    thisdict.append([a,b])
+h=int(len(thisdict)/2)
+sortedList=shellSort(thisdict,h)
+for n in range(h*2):
+    print(str(sortedList[n][0])+": "+str(sortedList[n][1]))
 
 
