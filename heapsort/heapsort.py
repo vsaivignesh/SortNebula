@@ -3,14 +3,14 @@ def heapify(arr):
     while(n>0):
         if(n%2==0):
             k=int((n-2)/2)
-            if arr[n]>arr[k]:
+            if arr[n][0]>arr[k][0]:
                 temp=arr[k]
                 arr[k]=arr[n]
                 arr[n]=temp
                 heapify(arr)
         else:
             k=int((n-1)/2)
-            if arr[n]>arr[k]:
+            if arr[n][0]>arr[k][0]:
                 temp=arr[k]
                 arr[k]=arr[n]
                 arr[n]=temp
@@ -30,17 +30,17 @@ def heapsort(arr,sortedHeap):
         heapsort(arr,sortedHeap)
     
 
-thisdict={}
+thisdict=[]
 n=int(input(print("Enter number of keys")))
 for i in range(n):
     print("Enter key")
     a=int(input())
     print("Enter value")
-    thisdict[a]=int(input())
-keys=list(thisdict.keys())
+    b=int(input())
+    thisdict.append([a,b])
 sortedHeap=[]
-heapsort(keys,sortedHeap)
+heapsort(thisdict,sortedHeap)
 while(n>0):
     n=n-1
-    print(str(sortedHeap[n])+": "+str(thisdict.get(sortedHeap[n])))
+    print(str(sortedHeap[n][0])+": "+str(sortedHeap[n][1]))
 
